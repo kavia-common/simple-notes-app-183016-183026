@@ -7,6 +7,15 @@ A lightweight React UI to create, view, edit (inline), and delete notes.
 - Install dependencies: `npm install`
 - Start dev server: `npm start`
 
+This project is configured so the dev server binds to `0.0.0.0` and disables host header checking in development to support preview environments that use a custom host. This avoids the "Invalid Host header" error when accessing the app via a remote/preview URL.
+
+If you prefer using environment files instead of the package script, you can alternatively create `.env.development` with:
+```
+HOST=0.0.0.0
+DANGEROUSLY_DISABLE_HOST_CHECK=true
+```
+Restart the dev server after adding/changing env vars.
+
 ## Backend connection
 
 You can connect to the Flask API in one of two ways:
@@ -19,7 +28,7 @@ You can connect to the Flask API in one of two ways:
 - Restart the dev server after changing env vars.
 
 2) Using development proxy (alternative)
-- Add this to `package.json` (top-level):
+- The project already contains a proxy in `package.json`:
   ```
   "proxy": "http://localhost:5001"
   ```
