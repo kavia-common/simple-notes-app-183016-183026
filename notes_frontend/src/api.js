@@ -1,3 +1,8 @@
+/**
+ * API base URL resolution:
+ * - If REACT_APP_API_BASE_URL is set (e.g., http://localhost:5001/api), use it.
+ * - Else default to '/api' so CRA dev proxy can forward to the backend if configured.
+ */
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/api';
 
 /**
